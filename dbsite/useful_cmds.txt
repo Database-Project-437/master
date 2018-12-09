@@ -1,0 +1,6 @@
+python manage.py runserver
+
+heroku login
+git add .
+git commit -am "make it better"
+git push heroku master

@@ -1,0 +1,65 @@
+{% extends 'dbcli/base.html' %}
+
+{% block content %}
+	
+	<h2> For... </h2>
+	<br>
+	
+	<ul>
+		<li>{{location}}</li>
+		<li>{{industry}}</li>
+		<li>{{occupation}}</li>
+	</ul>
+	
+	
+	<h2> Your Results.... {{result}}</h2>
+	
+	
+	<div id="container" style="width:100%; height:400px;"></div>
+	
+	<script>
+	Highcharts.chart('container', {
+		chart: {
+			type: 'line'
+		},
+		title: {
+			text: 'Salary'
+		},
+		xAxis: {
+			title:{
+				text: 'percentile'
+			},
+			categories: ['10', '25', '50', '75', '90']
+		},
+		yAxis: {
+			title: {
+				text: 'Salary'
+			}
+		},
+		plotOptions: {
+			line: {
+				dataLabels: {
+					enabled: true
+				},
+				enableMouseTracking: false
+			}
+		},
+		series: [{
+			name: 'Salary',
+			data: [ {% for entry in sample_data %}{{ entry }}{% if not forloop.last %}, {% endif %}{% endfor %} ]
+		}, {
+			name: 'Your Salary',
+			data: [[ {% for entry in salary_list %}{{ entry }}{% if not forloop.last %}, {% endif %}{% endfor %} ]]
+		}]
+	});
+	</script>
+	
+	
+	
+	
+	
+	
+	<button style="float: center;" type="button" class="btn btn-lg btn-success" onclick="location.href = '/home';"> Ask Again </button>
+	
+	
+{% endblock %}

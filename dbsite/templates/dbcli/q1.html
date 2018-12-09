@@ -1,0 +1,62 @@
+{% extends 'dbcli/base.html' %}
+
+{% block content %}
+	
+	<h2> For... </h2>
+	<br>
+	
+	
+	
+	<div class="row">
+	 	<div class="col-sm">
+				<h4> Locations </h4>
+				{% for l in location %}
+					{{l.1}}
+					<br>
+				{% endfor %}
+		</div>
+	 	<div class="col-sm">
+				<h4> Industry </h4>
+				{% for l in industry %}
+					{{l.1}}
+					<br>
+				{% endfor %}
+		</div>
+	 	<div class="col-sm">
+				<h4> Occupations </h4>
+				{% for l in occupation %}
+					{{l.1}}
+					<br>
+				{% endfor %}
+		</div>
+	 	<div class="col-sm">
+				<h4> Stat </h4>
+				{{stat.1}}
+				<br>
+		</div>
+
+	</div>
+
+	
+	<br>
+	
+	<h2> Your Results.... </h2>
+	
+	<ul>
+	
+	{% for item in res %}
+		
+		<li>
+		
+			{{item.0.1}},{{item.1.1}},{{item.2.1}},{{item.3}}
+			
+		</li>
+		
+	{% endfor %}
+	
+	</ul>
+	
+	<button style="float: center;" type="button" class="btn btn-lg btn-success" onclick="location.href = '/home';"> Ask Again </button>
+	
+	
+{% endblock %}

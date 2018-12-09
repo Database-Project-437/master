@@ -1,0 +1,22 @@
+{% extends 'dbcli/base.html' %}
+
+{% block content %}
+	
+	<h2> For... </h2>
+	<br>
+	
+	<ul>
+		<li>{{location}}</li>
+		<li>{{industry}}</li>
+		<li>{{occupation}}</li>
+		<li>{{stat}}</li>
+	</ul>
+	
+	
+	<h2> Your Results.... {{res}}</h2>
+	
+	<button style="float: center;" type="button" class="btn btn-lg btn-success" onclick="location.href = '/home';"> Ask Again </button>
+	
+	
+{% endblock %}
+
